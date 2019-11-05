@@ -73,3 +73,6 @@ Login register and recover password Page
     position: absolute;
     height: 100%;
 }
+#logon-icon-head img {
+    height: 70px;
+}
