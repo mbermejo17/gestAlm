@@ -36,7 +36,7 @@ export class UsuariosComponent implements OnInit {
   }
 
 crearUsuario() {
-  
+
 }
 
   cargarUsuarios() {
@@ -81,7 +81,7 @@ crearUsuario() {
     this.cargando = true;
 
     this._usuarioService.buscarUsuarios( termino )
-            .subscribe( (usuarios: Usuario[]) => {
+            .subscribe( (usuarios: User[]) => {
 
               this.usuarios = usuarios;
               this.cargando = false;
@@ -89,7 +89,7 @@ crearUsuario() {
 
   }
 
-  borrarUsuario( usuario: Usuario ) {
+  borrarUsuario( usuario: User ) {
 
     if ( usuario._id === this._usuarioService.usuario._id ) {
       swal('No puede borrar usuario', 'No se puede borrar a si mismo', 'error');
@@ -118,7 +118,7 @@ crearUsuario() {
 
   }
 
-  guardarUsuario( usuario: Usuario ) {
+  guardarUsuario( usuario: User ) {
 
     this._usuarioService.actualizarUsuario( usuario )
             .subscribe();
