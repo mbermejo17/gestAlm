@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 
 
 import { UsuarioService } from '../services/service.index';
-import { Usuario } from '../models/usuario.model';
+import { User } from '../models/usuario.model';
 import { Router } from '@angular/router';
 
 declare function init_plugins();
@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
     }
 
 
-    let usuario = new Usuario(
+    let usuario = new User(
       this.forma.value.nombre,
       this.forma.value.correo,
       this.forma.value.password

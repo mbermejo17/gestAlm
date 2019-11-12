@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from '../../models/usuario.model';
+import { User } from '../../models/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 
@@ -16,7 +16,7 @@ import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 @Injectable()
 export class UsuarioService {
 
-  usuario: Usuario;
+  usuario: User;
   token: string;
   menu: any[] = [];
 
@@ -71,7 +71,7 @@ export class UsuarioService {
 
   }
 
-  guardarStorage( id: string, token: string, usuario: Usuario, menu: any ) {
+  guardarStorage( id: string, token: string, usuario: User, menu: any ) {
 
     localStorage.setItem('id', id );
     localStorage.setItem('token', token );
@@ -108,7 +108,7 @@ export class UsuarioService {
 
   }
 
-  login( usuario: Usuario, recordar: boolean = false ) {
+  login( usuario: User, recordar: boolean = false ) {
 
     if ( recordar ) {
       localStorage.setItem('email', usuario.email );
@@ -131,9 +131,9 @@ export class UsuarioService {
   }
 
 
-  crearUsuario( usuario: Usuario ) {
+  crearUsuario( usuario: User ) {
 
-    let url = URL_SERVICIOS + '/usuario';
+    let url = URL_SERVICIOS + '/user';
 
     return this.http.post( url, usuario )
               .map( (resp: any) => {
@@ -147,16 +147,16 @@ export class UsuarioService {
               });
   }
 
-  actualizarUsuario( usuario: Usuario ) {
+  actualizarUsuario( usuario: User ) {
 
-    let url = URL_SERVICIOS + '/usuario/' + usuario._id;
+    let url = URL_SERVICIOS + '/user/' + usuario._id;
     url += '?token=' + this.token;
 
     return this.http.put( url, usuario )
                 .map( (resp: any) => {
 
                   if ( usuario._id === this.usuario._id ) {
-                    let usuarioDB: Usuario = resp.usuario;
+                    let usuarioDB: User = resp.usuario;
                     this.guardarStorage( usuarioDB._id, this.token, usuarioDB, this.menu );
                   }
 
@@ -189,14 +189,14 @@ export class UsuarioService {
 
   cargarUsuarios( desde: number = 0 ) {
 
-    let url = URL_SERVICIOS + '/usuario?desde=' + desde;
+    let url = URL_SERVICIOS + '/user?desde=' + desde;
     return this.http.get( url );
 
   }
 
   buscarUsuarios( termino: string ) {
 
-    let url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
+    let url = URL_SERVICIOS + '/search/collection/users/' + termino;
     return this.http.get( url )
                 .map( (resp: any) => resp.usuarios );
 
@@ -204,7 +204,7 @@ export class UsuarioService {
 
   borrarUsuario( id: string ) {
 
-    let url = URL_SERVICIOS + '/usuario/' + id;
+    let url = URL_SERVICIOS + '/user/' + id;
     url += '?token=' + this.token;
 
     return this.http.delete( url )

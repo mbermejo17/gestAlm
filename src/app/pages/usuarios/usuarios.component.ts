@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../models/usuario.model';
+import { User } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/service.index';
 import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
 
@@ -12,7 +12,7 @@ declare var swal: any;
 })
 export class UsuariosComponent implements OnInit {
 
-  usuarios: Usuario[] = [];
+  usuarios: User[] = [];
   desde: number = 0;
 
   totalRegistros: number = 0;
@@ -34,6 +34,10 @@ export class UsuariosComponent implements OnInit {
 
     this._modalUploadService.mostrarModal( 'usuarios', id );
   }
+
+crearUsuario() {
+  
+}
 
   cargarUsuarios() {
 
