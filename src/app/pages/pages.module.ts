@@ -32,6 +32,9 @@ import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { ArticlesComponent } from './articles/articles.component';
+import { ModelsComponent } from './models/models.component';
+import { ManufacturersComponent } from './manufacturers/manufacturers.component';
 
 @NgModule({
     declarations: [
@@ -50,7 +53,10 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         HospitalesComponent,
         MedicosComponent,
         MedicoComponent,
-        BusquedaComponent
+        BusquedaComponent,
+        ArticlesComponent,
+        ModelsComponent,
+        ManufacturersComponent
     ],
     exports: [
         DashboardComponent,
