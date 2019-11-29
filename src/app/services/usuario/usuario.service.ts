@@ -19,6 +19,7 @@ export class UsuarioService {
   usuario: User;
   token: string;
   menu: any[] = [];
+  myReferer: string = 'https://sdapp.unifyspain.es';
 
   constructor(
     public http: HttpClient,
@@ -28,10 +29,14 @@ export class UsuarioService {
     this.cargarStorage();
   }
 
+ // if (document.referer) {
+   // this.myReferer = 'https://sdapp.unifyspain.es';
+  // } ;
 
   renuevaToken() {
 
-    let url = URL_SERVICIOS + '/login/renuevatoken';
+    // let url = URL_SERVICIOS + '/login/renuevatoken';
+    let url =  '/login/renuevatoken';
     url += '?token=' + this.token;
 
     return this.http.get( url )
@@ -97,7 +102,8 @@ export class UsuarioService {
 
   loginGoogle( token: string ) {
 
-    let url = URL_SERVICIOS + '/login/google';
+    //let url = URL_SERVICIOS + '/login/google';
+    let url = this.myReferer + '/login/google';
 
     return this.http.post( url, { token } )
                 .map( (resp: any) => {
@@ -116,7 +122,8 @@ export class UsuarioService {
       localStorage.removeItem('email');
     }
 
-    let url = URL_SERVICIOS + '/login';
+    // let url = URL_SERVICIOS + '/login';
+    let url = this.myReferer + '/login';
     return this.http.post( url, usuario )
                 .map( (resp: any) => {
                   this.guardarStorage( resp.id, resp.token, resp.usuario, resp.menu );
@@ -196,7 +203,8 @@ export class UsuarioService {
 
   buscarUsuarios( termino: string ) {
 
-    let url = URL_SERVICIOS + '/search/collection/users/' + termino;
+    // let url = URL_SERVICIOS + '/search/collection/users/' + termino;
+    let url = this.myReferer + '/search/collection/users/' + termino;
     return this.http.get( url )
                 .map( (resp: any) => resp.usuarios );
 

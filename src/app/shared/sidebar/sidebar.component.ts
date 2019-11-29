@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SidebarService, UsuarioService } from '../../services/service.index';
-import { Usuario } from '../../models/usuario.model';
+import { User } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,7 +10,7 @@ import { Usuario } from '../../models/usuario.model';
 })
 export class SidebarComponent implements OnInit {
 
-  usuario: Usuario;
+  usuario: User;
 
   constructor(
     public _sidebar: SidebarService,

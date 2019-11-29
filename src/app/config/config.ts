@@ -1,3 +1,3 @@
 
 
-export const URL_SERVICIOS = 'http://localhost:3000';
+export const URL_SERVICIOS = 'http://172.100.14.90:3000';

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../models/usuario.model';
+import { User } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/service.index';
 
 @Component({
@@ -9,7 +9,7 @@ import { UsuarioService } from '../../services/service.index';
 })
 export class ProfileComponent implements OnInit {
 
-  usuario: Usuario;
+  usuario: User;
 
   imagenSubir: File;
   imagenTemp: string;
@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
-  guardar( usuario: Usuario ) {
+  guardar( usuario: User ) {
 
     this.usuario.nombre = usuario.nombre;
     if ( !this.usuario.google ) {

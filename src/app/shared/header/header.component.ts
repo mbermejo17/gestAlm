@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/service.index';
-import { Usuario } from '../../models/usuario.model';
+import { User } from '../../models/usuario.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  usuario: Usuario;
+  usuario: User;
 
   constructor(
     public _usuarioService: UsuarioService,
